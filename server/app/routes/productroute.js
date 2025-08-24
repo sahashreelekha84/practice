@@ -1,10 +1,11 @@
 const express=require('express')
 const ProductController = require('../controller/ProductController')
 const { AuthCheck, checkRole, checkpermission } = require('../middleware/AuthCheck')
+const productimageupload = require('../helper/productimageupload')
 const router=express.Router()
-router.post('/create/product',AuthCheck,checkRole('Admin'),checkpermission("create"),ProductController.createproduct)
+router.post('/create/product',AuthCheck,checkRole('Admin'),checkpermission("create"), productimageupload.single('image'),ProductController.createproduct)
 router.get('/product',ProductController.allproduct)
 router.get('/editproduct/:id',ProductController.singleproduct)
-router.post('/updateproduct/:id',ProductController.updateproduct)
+router.post('/updateproduct/:id',productimageupload.single('image'),ProductController.updateproduct)
 router.delete('/deleteproduct/:id',ProductController.deleteproduct)
 module.exports=router

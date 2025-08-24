@@ -5,6 +5,7 @@ const cors=require('cors')
 
 const app=express()
 app.use(express.json())
+app.use('/uploads', express.static('uploads'));
 dbcon()
 app.use(cors())
 const authroute=require('./app/routes/authroute')

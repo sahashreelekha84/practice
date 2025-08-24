@@ -8,6 +8,7 @@ description:{type:String,require:true},
 price:{type:Number,require:true},
 
 category:{type:String,require:true},
+image:{type:String}
 
 
 },{timestamps:true})
