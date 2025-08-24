@@ -1,0 +1,10 @@
+const express=require('express')
+const ProductController = require('../controller/ProductController')
+const { AuthCheck, checkRole, checkpermission } = require('../middleware/AuthCheck')
+const router=express.Router()
+router.post('/create/product',AuthCheck,checkRole('Admin'),checkpermission("create"),ProductController.createproduct)
+router.get('/product',ProductController.allproduct)
+router.get('/editproduct/:id',ProductController.singleproduct)
+router.post('/updateproduct/:id',ProductController.updateproduct)
+router.delete('/deleteproduct/:id',ProductController.deleteproduct)
+module.exports=router

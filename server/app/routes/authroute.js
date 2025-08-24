@@ -1,0 +1,12 @@
+const express=require('express')
+const AuthController = require('../controller/AuthController')
+const { AuthCheck } = require('../middleware/AuthCheck')
+const router=express.Router()
+router.post('/register',AuthController.register)
+router.post('/login',AuthController.login)
+router.post('/verifyemail',AuthController.verifyemail)
+router.post('/resendotp',AuthController.resendotp)
+router.post('/adminlogin',AuthController.adminlogin)
+router.post('/setpassword',AuthCheck, AuthController.setpassword)
+router.get('/dashboard',AuthCheck, AuthController.dashboard)
+module.exports=router
