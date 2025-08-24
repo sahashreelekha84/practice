@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+      <h1>Update Page</h1>
+        <form action="/updateproduct/<%=data._id%>" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="<%=data.name%>">
+                
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">description</label>
+              <input type="text" class="form-control" name="description" value="<%=data.description%>">
+              
+            </div>
+           
+            <div class="mb-3">
+                <label for="city" class="form-label">category</label>
+                <input type="text" class="form-control" name="category" value="<%=data.category%>">
+              </div>
+           <div class="mb-3">
+                <label for="city" class="form-label">price</label>
+                <input type="text" class="form-control" name="price" value="<%=data.price%>">
+              </div>
+               <div class="mb-3">
+                <% if (data.image) { %>
+                    <img src="/uploads/<%= data.image %>" alt="Product Image" width="150" />
+                <%}%>
+                <label for="city" class="form-label">image</label>
+                <input type="file" value="/uploads/<%= data.image %>">
+              </div>
+            <button type="submit" class="btn btn-primary">update</button>
+          </form>
+    </div>
+   
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</html>
